@@ -13,15 +13,20 @@ export default function CharactersList() {
     return <div>There is an error</div>;
   }
   return (
-    <div className="CharacterList">
-      {data.characters.results.map((character) => {
-        return (
-          <Link to={`/${character.id}`} key={character.id}>
-            <img src={character.image} alt={character.name} />
-            <h2>{character.name}</h2>
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <div className="Search">
+        <Link to={`/search`}> Search Location </Link>
+      </div>
+      <div className="CharacterList">
+        {data.characters.results.map((character) => {
+          return (
+            <Link to={`/${character.id}`} key={character.id}>
+              <img src={character.image} alt={character.name} />
+              <h2>{character.name}</h2>
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }
